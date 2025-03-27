@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Private Video Site</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        input { width: 80%; padding: 10px; margin-bottom: 20px; }
+        .video-container { margin: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>My Private Video Library</h1>
+    <input type="text" id="search" placeholder="Search videos..." onkeyup="searchVideos()">
+
+    <div id="videoList">
+        <div class="video-container">
+            <h3>Sample Video 1 (1080p)</h3>
+            <iframe width="560" height="315" src="https://mega.nz/embed/w8RVwT4J#VXAz0uaHI4O54UeJ3tPeuGho3onOy6iXEplq4h0AkuI!" allowfullscreen></iframe>
+        </div>
+
+    <script>
+        function searchVideos() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let videos = document.getElementsByClassName("video-container");
+            for (let video of videos) {
+                let title = video.getElementsByTagName("h3")[0].innerText.toLowerCase();
+                video.style.display = title.includes(input) ? "block" : "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
